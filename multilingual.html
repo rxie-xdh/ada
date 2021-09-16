@@ -1,0 +1,111 @@
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script language="javascript">
+  function replaceHtmlText($element, textToReplace, newText) {
+    $element.html(function () {
+      return $element.html().replace(textToReplace, newText);
+    });
+  }
+
+  function replaceTextAndTooltip($element, newText, newTooltip) {
+    $element.text(newText);
+    $element.attr('data-tippy-content', newTooltip);
+  }
+
+  $(function () {
+    var pathname = window.location.pathname;
+    var poolId = '00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e';
+
+    if (pathname === '/cn/home' || pathname === '/cn/contact') {
+      var contactUs = $("a:contains('Contact Us')");
+      contactUs.text('è¯ç¹«æˆ‘å€‘');
+      contactUs.attr('href', '/cn/contact');
+      $('#site-title').attr('href', '/cn/home');
+      $("h4:contains('Public Metrics')").text('å…¬å…±æŒ‡æ¨™');
+
+      if (pathname === '/cn/home') {
+        $('.tickerLabel').text('ä»£ç¢¼');
+        $('.poolIdLabel').text('æ¬Šç›Šæ±  ID');
+        $(`#${poolId}_ends`).text('çµæŸæ–¼');
+        $(`#${poolId}_ends_d_l`).text(' å¤©');
+        $(`#${poolId}_ends_h_l`).text(' å°æ™‚');
+        $(`#${poolId}_ends_m_l`).text(' åˆ†é˜');
+        $(`#${poolId}_price_l`).text('Â¥');
+        $('#coinbasePriceEndpoint').attr('href', 'https://api.coinbase.com/v2/prices/ADA-CNY/spot');
+        $("h3:contains('AWARDS')").text('çŽé …');
+        $("h3:contains('HOW TO BUY')").text('å¦‚ä½•è³¼è²·');
+        $("h3:contains('HOW TO STAKE')").text('å¦‚ä½•è´¨æŠ¼');
+        $("h3:contains('Cardano News')").text('Cardano æ–°èž');
+        $("h2:contains('Sign up to receive pool updates')").text('è¨»å†Šä»¥æŽ¥æ”¶æ›´æ–°æ¶ˆæ¯');
+        $("span:contains('Sign Up')").text('è¨»å†Š');
+        $('input[name="email"]').attr('placeholder', 'é›»å­éƒµä»¶åœ°å€');
+        $("p:contains('ADApools.org Level 3 Supporter')").text('ADApools.org æœ€é«˜ç­‰ç´šæ”¯æŒè€…');
+        $('#pool_description').text('æˆ‘å€‘çš„æ¬Šç›Šæ± æ˜¯æ–°çš„ï¼Œéœ€è¦æ‚¨çš„å¹«åŠ©æ‰èƒ½æ›´å¤§çš„ç™¼å±•ã€‚æˆ‘å€‘æ‰¿è«¾æ°¸é ä¸æœƒéŒ¯éŽä»»ä½•ä¸€å€‹å€å¡Šã€‚é€šéŽé›¶åˆ©æ½¤ã€å¤šå±¤å®‰å…¨æ€§ã€24/7 å…¨å¤©å€™ç›£æŽ§ã€é«˜æ€§èƒ½ç¯€é»žå’Œåœ°ç†å†—é¤˜é€£æŽ¥ä¾†æœ€å¤§åŒ–æ‚¨çš„å›žå ±ã€‚');
+        $("a:contains('CoinQuora')").attr('href', 'https://coinquora.com/zh-hans/?s=cardano');
+        $("a:contains('Cointelegraph')").attr('href', 'https://cointelegraphcn.com/search?query=Cardano');
+        replaceTextAndTooltip($('.epoch').find('h4'), 'æ—¶ä»£', 'Cardano å¹³è‡ºå°‡æ™‚é–“åˆ†æˆç¨±ç‚ºæ—¶ä»£çš„æ™‚æœŸã€‚ä¸€å€‹æ—¶ä»£å¤§ç´„æŒçºŒ 5 å¤©ã€‚');
+        replaceTextAndTooltip($('.ada').find('h4'), 'åƒ¹æ ¼', 'Cardano ä¸­åœ‹äººæ°‘å¹£åƒ¹æ ¼');
+        replaceTextAndTooltip($("a:contains('Relays')"), 'å‚³é”ç¯€é»ž', 'å‚³é”ç¯€é»žå……ç•¶æ ¸å¿ƒç¶²çµ¡ç¯€é»žå’Œäº’è¯ç¶²ä¹‹é–“çš„ä»£ç†ï¼Œåœç¹žè‘—æ ¸å¿ƒç¯€é»žå»ºç«‹å®‰å…¨é‚Šç•Œã€‚å‚³é”ç¯€é»žç¢ºä¿æ ¸å¿ƒç¯€é»žå’Œå€å¡Šéˆçš„å®Œæ•´æ€§çš„å®Œæ•´ï¼Œå³ä½¿ä¸€å€‹æˆ–å¤šå€‹å‚³é”ç¯€é»žå—åˆ°æå®³ã€‚');
+        replaceTextAndTooltip($("td:contains('Pledge')"), 'æ± ä¸»æ‡‰è«¾è³ªæŠ¼é‡', 'æ¬Šç›Šæ± æ± ä¸»æ‡‰è«¾çš„è³ªæŠ¼é‡ã€‚');
+        replaceTextAndTooltip($("td:contains('Total Stake')"), 'æ± ç¾æœ‰è³ªæŠ¼é‡', 'å¯¦æ™‚æ‰€æœ‰å§”è¨—äººç¸½è³ªæŠ¼é‡ã€‚');
+        replaceTextAndTooltip($("td:contains('Delegators')"), 'å§”è¨—äººæ•¸', 'å§”è¨—çµ¦æ¬Šç›Šæ± çš„éŒ¢åŒ…æ•¸é‡ã€‚');
+        replaceTextAndTooltip($("td:contains('Margin')"), 'å¯è®Šè²»ç”¨', 'åœ¨å›ºå®šè²»ç”¨å¾Œï¼Œæ¬Šç›Šæ± ä¸»ç²å¾—çš„ç¸½çŽå‹µçš„ç™¾åˆ†æ¯”ã€‚');
+        replaceTextAndTooltip($("td:contains('Fixed Cost')"), 'å›ºå®šè´¹ç”¨', 'æ± çš„å›ºå®šè²»ç”¨å–è‡ªæ–¼æ¯å€‹æ™‚ä»£çš„çŽå‹µã€‚è©²è²»ç”¨ç”±æ± çš„æ‰€æœ‰å§”è¨—äººå…±äº«ï¼Œè€Œä¸æ˜¯æ¯å€‹å§”è¨—äººã€‚æœ€å°å€¼ç‚º 340 ADAã€‚');
+        replaceTextAndTooltip($("td:contains('Lifetime ROA')"), 'æ€»å¹³å‡æ”¶ç›ŠçŽ‡', 'ADA çš„ä¼°è¨ˆå›žå ±ï¼Œæ ¹æ“šçµ‚èº«è³ªæŠ¼çŽå‹µæŒ‰å¹´è¨ˆç®—ã€‚æ± ä¸»çŽå‹µä¸åŒ…æ‹¬åœ¨è¨ˆç®—ä¸­ã€‚');
+        replaceTextAndTooltip($("td:contains('Epoch Blocks')"), 'æ—¶ä»£å€å¡Šé‡', 'é€™æ—¶ä»£é‘„é€ å€å¡Šçš„æ•¸é‡ã€‚');
+        replaceTextAndTooltip($("td:contains('Lifetime Blocks')"), 'æ€»å€å¡Šé‡', 'ç»ˆèº«é‘„é€ å€å¡Šçš„æ•¸é‡ã€‚');
+        replaceTextAndTooltip($("td:contains('Lifetime Luck')"), 'æ¬Šç›Šæ± æ€»è¿æ°”', 'è¡¡é‡å·²ç”¢ç”Ÿçš„å€å¡Šæ•¸é‡èˆ‡æ¬Šç›Šæ± é æœŸç”¢ç”Ÿçš„æ•¸é‡ã€‚å¾žé•·é ä¾†çœ‹ï¼Œé‹æ°£å¹³å‡ç‚º 100%ã€‚');
+
+        replaceHtmlText(
+          $("h4:contains('You can buy on: ')"),
+          'You can buy on: ',
+          'å¯è³¼è²·çš„å¹³è‡º: '
+        );
+
+        replaceHtmlText(
+          $("h4:contains('You can stake through: ')"),
+          'You can stake through: ',
+          'å¯è´¨æŠ¼çš„å¹³è‡º: '
+        );
+      } else if (pathname === '/cn/contact') {
+        $("strong:contains('Email')").text('é›»å­éƒµä»¶');
+        $("strong:contains('Phone')").text('é›»è©±');
+        $("label:contains('Phone')").text('é›»è©±');
+        $('.description').text('é›»è©±è™Ÿç¢¼åŒ…æ‹¬åœ‹å®¶ä»£ç¢¼');
+        $("legend:contains('Name')").text('å§“å');
+        $("span:contains('Country')").text('åœ‹å®¶ä»£ç¢¼');
+        $("span:contains('First Name')").text('å');
+        $("span:contains('Last Name')").text('å§“');
+        $('input[value="Submit"]').attr('value', 'æäº¤');
+        $("h2:contains('Contact us')").text('è¯ç¹«æˆ‘å€‘');
+
+        replaceHtmlText($("h2:contains('Contact us')").next(),
+          'If you have any questions or comments, please contact us via email or phone, or send us a message using the contact form.',
+          'å¦‚æžœæ‚¨æœ‰ä»»ä½•å•é¡Œæˆ–æ„è¦‹ï¼Œè«‹é€šéŽé›»å­éƒµä»¶æˆ–é›»è©±èˆ‡æˆ‘å€‘è¯ç¹«ï¼Œæˆ–ä½¿ç”¨è¯ç¹«è¡¨çµ¦æˆ‘å€‘ç™¼é€æ¶ˆæ¯ã€‚'
+        );
+        replaceHtmlText($("label:contains('Email')"), 'Email', 'é›»å­éƒµä»¶');
+        replaceHtmlText($("label:contains('Subject')"), 'Subject', 'æ¨™é¡Œ');
+        replaceHtmlText($("label:contains('Message')"), 'Message', 'å…§å®¹');
+      }
+    }
+  });
+
+  // This code will execute as soon as the document is loaded
+  $(document).ready(function () {
+    // Allow or disallow html in tooltips (default = false)
+    tippy.setDefaultProps({ allowHTML: true });
+    // Transform elements
+    let tooltip_elements = $('a[href^="#tooltip_"]');
+    tooltip_elements.each(function (i) {
+      let link = $(this).attr('href');
+      let tip = link.replace('#tooltip_', '');
+      $(this).attr('data-tippy-content', tip);
+      if (link.startsWith('#tooltip_')) {
+        $(this).removeAttr('href').css('cursor', 'pointer');
+      }
+    });
+    // Finally, call `tippy`
+    tippy('[data-tippy-content]');
+  });
+</script>
