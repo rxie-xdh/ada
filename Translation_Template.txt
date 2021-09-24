@@ -1,0 +1,108 @@
+  contactUs:              "",Contact Us
+  publicMetrics:          "",Public Metrics
+  awards:                 "",AWARDS
+  news:                   "",Cardano News
+  subscribe:              "",Sign up to receive pool updates
+  phone:                  "",Phone
+  name:                   "",Name
+  firstName:              "",First Name
+  lastName:               "",Last Name
+  email:                  "",Email
+  emailAddress:           "",Email Address
+  emailSubject:           "",Subject
+  emailBody:              "",Message
+  countryCodeDescription: "",Phone number including country code
+  howToBuy:               "",HOW TO BUY
+  buyOn:                  "",You can buy on: 
+  howToStake:             "",HOW TO STAKE
+  stakeOn:                "",You can stake through: 
+  ticker:                 "",Ticker
+  poolId:                 "",Pool ID
+  submit:                 "",Submit
+  signUp:                 "",Sign Up
+  contactUsDescription:   "",If you have any questions or comments, please contact us via email or phone, or send us a message using the contact form.
+  relays:                 "",RELAYS
+  ends:                   "",Ends in
+  price:                  "",Price
+  priceTip:               "",Cardano USD price
+  epoch:                  "",Epoch
+  epochTip:               "",Cardano network splits time into periods called epochs. One epoch lasts approximately 5 days.
+  pledge:                 "",Pledge
+  pledgeTip:              "",The amount that the stake pool owner commits to delegate to the pool.
+  totalStake:             "",Total Stake
+  totalStakeTip:          "",The total amount being delegated in real-time.
+  delegators:             "",Delegators
+  delegatorsTip:          "",The number of wallets delegating to the pool.
+  margin:                 "",Margin
+  marginTip:              "",A percentage of the pool's total rewards taken by the stake pool operator after the fixed cost.
+  fixedCost:              "",Fixed Cost
+  fixedCostTip:           "",Fixed cost of the pool is taken from the pool rewards every epoch. This fee is shared among all delegators of the pool, not per delegator. Minimum value is 340 ADA.
+  lifetimeROA:            "",Lifetime ROA
+  lifetimeROATip:         "",Estimated Return of ADA, annualized based on lifetime staking rewards. Owner/leader rewards are excluded from calculation.
+  epochBlocks:            "",Epoch Blocks
+  epochBlocksTip:         "",The number of minted blocks in actual epoch.
+  lifetimeBlocks:         "",Lifetime Blocks
+  lifetimeBlocksTip:      "",The number of minted blocks lifetime.
+  lifetimeLuck:           "",Lifetime Luck
+  lifetimeLuckTip:        "",A measure of how many blocks that have been produce vs the amount that the pool is expected to produce. In the long run, the luck averages out to 100%.
+  supporter:              "",ADApools.org Level 3 Supporter
+  relaysTip:              "",Relay nodes act as proxies between the core network nodes and the internet, establishing a security perimeter around the core, block-producing network nodes. Relays ensure that the integrity of the core nodes and the blockchain remains intact, even if one or more relays become compromised.
+  howToStakeTip:          "",The ADA used for staking never leaves the delegator's wallet, and delegators earn rewards in a way that is similar to interest in a savings account. Delegators can move their ADA freely after it has been staked or even unstake it completely if they choose.
+  poolDescription:        "",Our pool is new and needs your help to grow. We're committed to never missing a block. Maximize your rewards with zero margin, multi-layered security, 24/7 monitoring, high performance nodes, and geo-redundant connections.
+  priceTip:               "Cardano USD price",
+  endsDay:                "d",
+  endsHour:               "h",
+  endsMinute:             "m",
+  currencySymbol:         "$",
+  pricePair:              "ADA-USD",
+  coinQuora:              "https://coinquora.com/zh-hans/?s=cardano",
+  cointelegraph:          "https://cointelegraphcn.com/search?query=Cardano",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
