@@ -49,6 +49,7 @@
   relaysTip:              "",Relay nodes act as proxies between the core network nodes and the internet, establishing a security perimeter around the core, block-producing network nodes. Relays ensure that the integrity of the core nodes and the blockchain remains intact, even if one or more relays become compromised.
   howToStakeTip:          "",The ADA used for staking never leaves the delegator's wallet, and delegators earn rewards in a way that is similar to interest in a savings account. Delegators can move their ADA freely after it has been staked or even unstake it completely if they choose.
   poolDescription:        "",Our pool is new and needs your help to grow. We're committed to never missing a block. Maximize your rewards with zero margin, multi-layered security, 24/7 monitoring, high performance nodes, and geo-redundant connections.
+  formSubmission:         "",Thank you！A confirmation email has been sent to you.
   priceTip:               "Cardano USD price",
   endsDay:                "d",
   endsHour:               "h",
