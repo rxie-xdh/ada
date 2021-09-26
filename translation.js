@@ -107,6 +107,7 @@ $(function () {
       submit: '提交',
       contactUsDescription:
         '如果您有任何問題或意見，請通過電子郵件或電話與我們聯繫，或使用聯繫表給我們發送消息。',
+      formSubmission: '謝謝您！已發送了確認電子郵件。',
     };
   } else if (code === 'ja') {
     dict = {
@@ -176,6 +177,8 @@ $(function () {
       submit: '申し出る',
       contactUsDescription:
         'ご質問やご意見がございましたら、メールまたは電話でお問い合わせいただくか、お問い合わせフォームからメッセージをお送りください。',
+      formSubmission:
+        'どうもありがとうございます！確認メールが送信されました。',
     };
   } else if (code === 'en') {
     dict = {
@@ -227,6 +230,7 @@ $(function () {
       lifetimeLuck: 'Lifetime Luck',
       lifetimeLuckTip:
         'A measure of how many blocks that have been produce vs the amount that the pool is expected to produce. In the long run, the luck averages out to 100%.',
+      formSubmission: 'Thank you！A confirmation email has been sent to you.',
     };
   } else if (code === 'vn') {
     dict = {
@@ -298,6 +302,7 @@ $(function () {
       pricePair: 'ADA-VND',
       coinQuora: 'https://coinquora.com?s=cardano',
       cointelegraph: 'https://cointelegraph.com/search?query=Cardano',
+      formSubmission: 'Cảm ơn bạn！ Một email xác nhận đã được gửi cho bạn.',
     };
   }
 
@@ -429,6 +434,8 @@ $(function () {
         'You can stake through: ',
         dict.stakeOn
       );
+
+      replaceText($('.form-submission-text').find('p'), dict.formSubmission);
     } else if (isContactPage) {
       replaceNavigationLink($(`a[href="/"]`), '/en/contact');
 
