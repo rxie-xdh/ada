@@ -206,7 +206,7 @@ $(function () {
       epochTip:
         'Cardano network splits time into periods called epochs. One epoch lasts approximately 5 days.',
       poolDescription:
-        "Our pool is new and needs your help to grow. We're committed to never missing a block. Maximize your rewards with zero margin, multi-layered security, 24/7 monitoring, high performance nodes, and geo-redundant connections.",
+        "Our pool is new and needs your help to grow. We're committed to never missing a block. Maximize your rewards with zero margin, multi-layered security, 24/7 monitoring, high-performance nodes, and geo-redundant connections.",
       pledge: 'Pledge',
       pledgeTip:
         'The amount that the stake pool owner commits to delegate to the pool.',
