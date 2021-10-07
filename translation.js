@@ -34,7 +34,7 @@ $(function () {
   const pathname = window.location.pathname;
   const pathSplits = pathname.split('/').filter(Boolean);
   var code = pathSplits.length === 0 ? 'en' : pathSplits[0];
-  const supportedLanugages = ['cn', 'ja', 'en', 'vn'];
+  const supportedLanugages = ['cn', 'ja', 'en', 'vn', 'pt-br', 'es'];
   if (!supportedLanugages.includes(code)) {
     return;
   }
@@ -72,8 +72,6 @@ $(function () {
       supporter: 'ADApools.org 最高等級支持者',
       poolDescription:
         '我們的權益池是新的，需要您的幫助才能更大的發展。我們承諾永遠不會錯過任何一個區塊。通過零利潤、多層安全性、24/7 全天候監控、高性能節點和地理冗餘連接來最大化您的回報。',
-      coinQuora: 'https://coinquora.com/zh-hans/?s=cardano',
-      cointelegraph: 'https://cointelegraphcn.com/search?query=Cardano',
       epoch: '時代',
       epochTip: 'Cardano 平臺將時間分成稱為時代的時期。一個時代大約持續 5 天。',
       price: '價格',
@@ -108,6 +106,10 @@ $(function () {
       contactUsDescription:
         '如果您有任何問題或意見，請通過電子郵件或電話與我們聯繫，或使用聯繫表給我們發送消息。',
       formSubmission: '謝謝您！已發送了確認電子郵件。',
+      coinQuora: 'https://coinquora.com/zh-hans/?s=cardano',
+      cointelegraph: 'https://cointelegraphcn.com/search?query=Cardano',
+      etoro: 'https://www.etoro.com/zh-tw/',
+      kraken: 'https://www.kraken.com/zh-cn/',
     };
   } else if (code === 'ja') {
     dict = {
@@ -141,7 +143,6 @@ $(function () {
       supporter: 'ADApools.org 最高レベルのサポーター',
       poolDescription:
         '私たちのエクイティプールは新しく、さらに発展させるためにあなたの助けが必要です。ブロックを見逃さないことをお約束します。ゼロ利益、多層セキュリティ、24時間年中無休の監視、高性能ノード、地理的に冗長な接続で収益を最大化します。',
-      cointelegraph: 'https://jp.cointelegraph.com/search?query=Cardano',
       epoch: 'エポック',
       epochTip:
         'Cardanoネットワークは、時間をエポックと呼ばれる期間に分割します。1つのエポックは約5日間続きます。',
@@ -179,6 +180,9 @@ $(function () {
         'ご質問やご意見がございましたら、メールまたは電話でお問い合わせいただくか、お問い合わせフォームからメッセージをお送りください。',
       formSubmission:
         'どうもありがとうございます！確認メールが送信されました。',
+      cointelegraph: 'https://jp.cointelegraph.com/search?query=Cardano',
+      daedalus: 'https://daedaluswallet.io/ja/',
+      kraken: 'https://www.kraken.com/ja-jp/',
     };
   } else if (code === 'en') {
     dict = {
@@ -300,9 +304,161 @@ $(function () {
       endsMinute: ' phút',
       currencySymbol: '₫',
       pricePair: 'ADA-VND',
-      coinQuora: 'https://coinquora.com?s=cardano',
-      cointelegraph: 'https://cointelegraph.com/search?query=Cardano',
+      etoro: 'https://www.etoro.com/vi-vn/',
+      kraken: 'https://www.kraken.com/vi-vn/',
       formSubmission: 'Cảm ơn bạn！ Một email xác nhận đã được gửi cho bạn.',
+    };
+  } else if (code === 'pt-br') {
+    dict = {
+      contactUs: 'Entre em contato conosco',
+      publicMetrics: 'Métricas Públicas',
+      awards: 'PRÊMIOS',
+      news: 'Cardano Notícia',
+      subscribe: 'Inscreva-se para receber atualizações do pool',
+      phone: 'Telefone',
+      name: 'Nome',
+      firstName: 'Primeiro nome',
+      lastName: 'Último nome',
+      email: 'O email',
+      emailAddress: 'Endereço de e-mail',
+      emailSubject: 'Sujeito',
+      emailBody: 'Mensagem',
+      countryCodeDescription: 'Número de telefone incluindo código do país',
+      howToBuy: 'COMO COMPRAR',
+      buyOn: 'Você pode comprar em:',
+      howToStake: 'COMO PARTICIPAR',
+      stakeOn: 'Você pode apostar através de:',
+      ticker: 'Símbolo de ação',
+      poolId: 'ID da piscina',
+      submit: 'Enviar',
+      signUp: 'Inscrever-se',
+      contactUsDescription:
+        'Se você tiver dúvidas ou comentários, entre em contato conosco por e-mail ou telefone, ou envie-nos uma mensagem através do formulário de contato.',
+      relays: 'RELÉS',
+      ends: 'Termina em',
+      price: 'Preço',
+      priceTip: 'Preço Cardano em USD',
+      epoch: 'Época',
+      epochTip:
+        'A rede Cardano divide o tempo em períodos chamados épocas. Uma época dura aproximadamente 5 dias.',
+      pledge: 'Compromisso',
+      pledgeTip:
+        'A quantia que o proprietário do pool de apostas se compromete a delegar ao pool.',
+      totalStake: 'Aposta Total',
+      totalStakeTip: 'O valor total sendo delegado em tempo real.',
+      delegators: 'Delegadores',
+      delegatorsTip: 'O número de carteiras delegadas ao pool.',
+      margin: 'Margem',
+      marginTip:
+        'Uma porcentagem das recompensas totais do pool obtidas pelo operador do pool da aposta após o custo fixo.',
+      fixedCost: 'Custo fixo',
+      fixedCostTip:
+        'O custo fixo do pool é retirado das recompensas do pool a cada época. Esta taxa é compartilhada entre todos os delegados do pool, não por delegante. O valor mínimo é 340 ADA.',
+      lifetimeROA: 'ROA vitalício',
+      lifetimeROATip:
+        'Retorno estimado de ADA, anualizado com base em recompensas de staking vitalícias. As recompensas do proprietário / líder são excluídas do cálculo.',
+      epochBlocks: 'Blocos de época',
+      epochBlocksTip: 'O número de blocos cunhados na época real.',
+      lifetimeBlocks: 'Blocos de vida',
+      lifetimeBlocksTip: 'O número de blocos cunhados durante a vida.',
+      lifetimeLuck: 'Sorte para toda a vida',
+      lifetimeLuckTip:
+        'Uma medida de quantos blocos foram produzidos versus a quantidade que se espera que a piscina produza. No longo prazo, a sorte atinge em média 100%.',
+      supporter: 'ADApools Nível 3 Apoiante',
+      relaysTip:
+        'Os nós de retransmissão atuam como proxies entre os nós da rede central e a Internet, estabelecendo um perímetro de segurança em torno dos nós da rede que produzem blocos. Os relés garantem que a integridade dos nós centrais e do blockchain permaneça intacta, mesmo se um ou mais relés forem comprometidos.',
+      howToStakeTip:
+        'O ADA usado para piquetar nunca sai da carteira do delegante, e os delegados ganham recompensas de uma forma semelhante aos juros de uma conta poupança. Os delegados podem mover seu ADA livremente após ele ter sido piquetado ou até mesmo retirá-lo completamente, se desejarem.',
+      poolDescription:
+        'Nossa piscina é nova e precisa da sua ajuda para crescer. Temos o compromisso de nunca perder um bloco. Maximize suas recompensas com margem zero, segurança em várias camadas, monitoramento 24 horas por dia, 7 dias por semana, nós de alto desempenho e conexões georredundantes.',
+      formSubmission:
+        'Obrigado! Um email de confirmação foi enviado para você.',
+      priceTip: 'Cardano Euro price',
+      endsDay: 'dias',
+      endsHour: 'horas',
+      endsMinute: 'minutos',
+      currencySymbol: '€',
+      pricePair: 'ADA-EUR',
+      cointelegraph: 'https://cointelegraph.com.br/search?query=Cardano',
+      kraken: 'https://www.kraken.com/pt-br/',
+      coinbase: 'hhttps://www.coinbase.com/pt',
+    };
+  } else if (code === 'es') {
+    dict = {
+      contactUs: 'Contáctenos',
+      publicMetrics: 'Métricas públicas',
+      awards: 'Premios',
+      news: 'Noticias Cardano',
+      subscribe: 'Regístrese para recibir actualizaciones de la piscina',
+      phone: 'Teléfono',
+      name: 'Nombre',
+      firstName: 'Primer nombre',
+      lastName: 'Apellido',
+      email: 'Correo electrónico',
+      emailAddress: 'Dirección de correo electrónico',
+      emailSubject: 'Tema',
+      emailBody: 'Mensaje',
+      countryCodeDescription: 'Número de teléfono con código de país',
+      howToBuy: 'CÓMO COMPRAR',
+      buyOn: 'Puedes comprar en:',
+      submit: 'Enviar',
+      signUp: 'Inscribirse',
+      contactUsDescription:
+        'Si tiene alguna pregunta o comentario, comuníquese con nosotros por correo electrónico o por teléfono, o envíenos un mensaje mediante el formulario de contacto.',
+      relays: 'Relés',
+      ends: 'Termina en',
+      price: 'Precio',
+      priceTip: 'Precio Cardano USD',
+      howToStake: 'CÓMO APUESTAR',
+      stakeOn: 'Puede apostar a través de:',
+      ticker: 'Corazón',
+      poolId: 'ID de grupo',
+      epoch: 'Época',
+      epochTip:
+        'La red Cardano divide el tiempo en períodos llamados épocas. Una época dura aproximadamente 5 días.',
+      pledge: 'Promesa',
+      pledgeTip:
+        'La cantidad que el propietario del grupo de participación se compromete a delegar en el grupo.',
+      totalStake: 'Apuesta total',
+      totalStakeTip: 'La cantidad total que se delega en tiempo real.',
+      delegators: 'Delegadores',
+      delegatorsTip: 'La cantidad de billeteras que se delegan en el grupo.',
+      margin: 'Margen',
+      marginTip:
+        'Un porcentaje de las recompensas totales del grupo que recibe el operador del grupo de participación después del costo fijo.',
+      fixedCost: 'Costo fijo',
+      fixedCostTip:
+        'El costo fijo del grupo se toma de las recompensas del grupo en cada época. Esta tarifa se comparte entre todos los delegadores del grupo, no por delegador. Mínimo',
+      lifetimeROA: 'ROA de por vida',
+      lifetimeROATip:
+        'Retorno estimado de ADA, anualizado basado en recompensas de por vida. Las recompensas de propietario / líder están excluidas del cálculo.',
+      epochBlocks: 'Bloques de época',
+      epochBlocksTip: 'El número de bloques acuñados en la época real.',
+      lifetimeBlocks: 'Bloques de por vida',
+      lifetimeBlocksTip: 'El número de bloques acuñados de por vida.',
+      lifetimeLuck: 'Suerte de por vida',
+      lifetimeLuckTip:
+        'Una medida de cuántos bloques se han producido frente a la cantidad que se espera que produzca la agrupación. A la larga, la suerte promedia',
+      supporter: 'Partidario de nivel 3 de ADApools.org',
+      formSubmission:
+        '¡Gracias! Se le ha enviado un correo electrónico de confirmación.',
+      relaysTip:
+        'Los nodos de retransmisión actúan como servidores proxy entre los nodos de la red central e Internet, estableciendo un perímetro de seguridad alrededor de los nodos de red centrales que producen bloques. Los relés aseguran que la integridad de los nodos centrales y la cadena de bloques permanezca intacta, incluso si uno o más relés se ven comprometidos.',
+      howToStakeTip:
+        'La ADA utilizada para apostar nunca sale de la billetera del delegador, y los delegadores obtienen recompensas de una manera similar a los intereses en una cuenta de ahorros. Los delegadores pueden mover su ADA libremente después de que se haya apostado o incluso deshacerlo por completo si así lo desean.',
+      poolDescription:
+        'Nuestra piscina es nueva y necesita tu ayuda para crecer. Estamos comprometidos a no perder nunca un bloque. Maximice sus recompensas con margen cero, seguridad multicapa, supervisión 24 horas al día, 7 días a la semana, nodos de alto rendimiento y conexiones con redundancia geográfica.',
+      priceTip: 'Cardano Euro price',
+      endsDay: 'dias',
+      endsHour: 'horas',
+      endsMinute: 'minutos',
+      currencySymbol: '€',
+      pricePair: 'ADA-EUR',
+      coinQuora: 'https://coinquora.com/es/?s=cardano',
+      cointelegraph: 'https://es.cointelegraph.com/search?query=Cardano',
+      etoro: 'https://www.etoro.com/es/',
+      coinbase: 'https://www.coinbase.com/es/',
+      kraken: 'https://www.kraken.com/es-es/',
     };
   }
 
@@ -363,7 +519,7 @@ $(function () {
 
       replaceText($("span:contains('Sign Up')"), dict.signUp);
       replaceText(
-        $("p:contains('ADApools.org Level 3 Supporter')"),
+        $("p:contains('ADApools Level 3 Supporter')"),
         dict.supporter
       );
       replaceText($('#pool_description'), dict.poolDescription);
@@ -376,6 +532,22 @@ $(function () {
 
       if (dict.cointelegraph) {
         $("a:contains('Cointelegraph')").attr('href', dict.cointelegraph);
+      }
+
+      if (dict.daedalus) {
+        $("a:contains('Daedalus')").attr('href', dict.daedalus);
+      }
+
+      if (dict.etoro) {
+        $("a:contains('eToro')").attr('href', dict.etoro);
+      }
+
+      if (dict.coinbase) {
+        $("a:contains('Coinbase')").attr('href', dict.coinbase);
+      }
+
+      if (dict.kraken) {
+        $("a:contains('Kraken')").attr('href', dict.kraken);
       }
 
       replaceTextAndTooltip($('.epoch').find('h4'), dict.epoch, dict.epochTip);
