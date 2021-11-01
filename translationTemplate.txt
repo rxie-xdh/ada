@@ -20,7 +20,6 @@
   relays:                 "",RELAYS
   ends:                   "",Ends in
   price:                  "",Price
-  priceTip:               "",Cardano USD price
   howToStake:             "",HOW TO STAKE
   stakeOn:                "",You can stake through: 
   ticker:                 "",Ticker
