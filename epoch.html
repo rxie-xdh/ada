@@ -1,0 +1,212 @@
+<div style="text-align: center;margin-top:-30px;">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $.getJSON('https://js.adapools.org/pools/00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e/summary.json',
+      function (data) {
+        $.each(data.data, function (key, val) {
+          a = new Array('tax_fix', 'pledge');
+          if (a.includes(key))
+		    val = Math.round(parseInt(val) / 10000000) / 100;
+			
+          if (key == 'total_stake')
+		    val = Math.round(parseInt(val) / 10000000000) / 100;
+			
+          if (key == 'blocks_lifetime')
+		    val = parseInt(val) + parseInt(data.data.blocks_epoch);
+		  
+          $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_' + key).html(val);
+        });
+      }
+    );
+
+    loadGlobal();
+    setInterval(loadGlobal, 10000);
+    function loadGlobal() {
+      $.getJSON('https://js.adapools.org/global.json',
+        function (data) {
+          var ended_before, conf_slots_epoch, slot_last;
+
+          $.each(data, function (key, val) {
+            if (key === 'epoch_last') {
+              $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_epoch_last').html(val);
+              return;
+            } else if (key === 'ended_before') {
+              ended_before = Number(val);
+            } else if (key === 'conf_slots_epoch') {
+              conf_slots_epoch = Number(val);
+            } else if (key === 'slot_last') {
+              slot_last = Number(val);
+            }
+
+            if (ended_before && conf_slots_epoch && slot_last) {
+              var current = new Date(1000 * (ended_before + slot_last));
+              var ends = new Date(1000 * (ended_before + conf_slots_epoch));
+
+              var diffInMilliseconds = ends.getTime() - current.getTime();
+              var diffInSeconds = diffInMilliseconds / 1000;
+              var diffInMinutes = diffInSeconds / 60;
+              var diffInHours = diffInMinutes / 60;
+              var diffInDays = diffInHours / 24;
+              var epochPercentage = (conf_slots_epoch - diffInSeconds) / conf_slots_epoch * 100;
+
+              $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_d').html(Math.floor(diffInDays));
+              $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_h').html(Math.floor(diffInHours) % 24);
+              $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_m').html(Math.floor(diffInMinutes) % 60);
+              $('#epoch_percentage').html(Math.round(epochPercentage * 10) / 10);
+              
+              ended_before = undefined;
+              conf_slots_epoch = undefined;
+              slot_last = undefined;
+            }
+          });
+        }
+      );
+    }
+
+    setTimeout(function () {
+      loadPrice();
+      setInterval(loadPrice, 2000);
+    }, 500);
+
+    function loadPrice() {
+      var coinbasePriceEndpoint = $("#coinbasePriceEndpoint").attr("href");
+      if (!coinbasePriceEndpoint) {
+        return;
+      }
+
+      $.getJSON(coinbasePriceEndpoint,
+        function (data) {
+          $.each(data.data, function (key, val) {
+            if (key === 'amount') {
+              val = Math.round(parseFloat(val) * 1000) / 1000;
+              $('#00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_price').html(val);
+              return;
+            }
+          });
+        }
+      );
+    }
+  </script>
+  <style>
+    .poolLabel {
+      text-align: right;
+    }
+
+    .poolValue {
+      padding-left: 30px;
+      text-align: right;
+      color: rgb(33, 53, 79);
+    }
+
+    .pool {
+      margin: 0 auto;
+    }
+
+    .global {
+      text-align: center;
+    }
+
+    .epoch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .globalLabel {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .globalValue {
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    .globalValue2 {
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .ada {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
+      padding-bottom: 65px;
+    }
+  </style>
+  <div class="global">
+    <div class="epoch">
+      <h4 class="globalLabel" data-tippy-content="">
+        Epoch</h4>
+      <h2 id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_epoch_last" class="globalValue">---</h2>
+      &nbsp;[<span id="epoch_percentage">----</span>%]
+    </div>
+    <span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends"></span>
+    <span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_d"></span><span
+      id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_d_l"></span>
+    <span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_h"></span><span
+      id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_h_l"></span>
+    <span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_m"></span><span
+      id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_ends_m_l"></span>
+    <div class="ada">
+      <h4 class="globalLabel" data-tippy-content=""></h4>
+      <h2 id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_price_l" class="globalValue"></h2>
+      <h2 id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_price" class="globalValue2">----</h2>
+    </div>
+  </div>
+  <span id="pool_description"></span><br><br>
+  <table class="pool">
+    <tr>
+      <td id="label_pledge" class="poolLabel" data-tippy-content="">
+      </td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_pledge"></span>k ₳</td>
+    </tr>
+    <tr>
+      <td id="label_totalstake" class="poolLabel" data-tippy-content=""></td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_total_stake"></span>M ₳
+      </td>
+    </tr>
+    <tr>
+      <td id="label_delegators" class="poolLabel" data-tippy-content=""></td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_delegators"></span></td>
+    </tr>
+    <tr>
+      <td id="label_margin" class="poolLabel" data-tippy-content="">
+      </td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_tax_ratio"></span>%</td>
+    </tr>
+    <tr>
+      <td id="label_lifetimeroa" class="poolLabel" data-tippy-content="">
+      </td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_roa_lifetime"></span>%
+      </td>
+    </tr>
+    <tr>
+      <td id="label_epochblocks" class="poolLabel" data-tippy-content=""></td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_blocks_epoch"></span>
+      </td>
+    </tr>
+    <tr>
+      <td id="label_lifetimeblocks" class="poolLabel" data-tippy-content=""></td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_blocks_lifetime"></span>
+      </td>
+    </tr>
+    <tr>
+      <td id="label_lifetimeluck" class="poolLabel" data-tippy-content="">
+      </td>
+      <td class="poolValue"><span id="00a6461d1561987241f41c34d42c5c5830a11510d3007a32d33f007e_luck_lifetime"></span>%
+      </td>
+    </tr>
+    <tr>
+      <td id="label_fixedcost" class="poolLabel" data-tippy-content="">
+      </td>
+      <td class="poolValue"><span>340</span> ₳</td>
+    </tr>
+  </table>
+  <a id="coinbasePriceEndpoint" hidden href=""></a>
+</div>
