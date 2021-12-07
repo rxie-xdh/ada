@@ -57,6 +57,5 @@
   pricePair:              "ADA-USD",
   coinQuora:              "https://coinquora.com/zh-hans/?s=cardano",
   cointelegraph:          "https://cointelegraphcn.com/search?query=Cardano",
-  etoro:                  "https://www.etoro.com/",
   coinbase:               "https://www.coinbase.com/",
   kraken:                 "https://www.kraken.com/",
