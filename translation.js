@@ -34,7 +34,7 @@ $(function () {
   const pathname = window.location.pathname;
   const pathSplits = pathname.split('/').filter(Boolean);
   var code = pathSplits.length === 0 ? 'en' : pathSplits[0];
-  const supportedLanugages = ['cn', 'ja', 'en', 'vn', 'pt-br', 'pt-pt', 'es'];
+  const supportedLanugages = ['cn', 'ja', 'en', 'vn', 'pt-br', 'pt-pt', 'es', 'ko'];
   if (!supportedLanugages.includes(code)) {
     return;
   }
@@ -173,7 +173,7 @@ $(function () {
       lifetimeLuck: '総運',
       lifetimeLuckTip:
         '生成されたブロックの数と予想されるエクイティプールの数を測定します。長期的には、運は平均100％です。',
-      buyOn: '利用可能なプラットフォーム： ',
+      buyOn: 'あなたはそれを買うことができます： ',
       stakeOn: 'あなたは委任することができます： ',
       submit: '申し出る',
       contactUsDescription:
@@ -253,9 +253,9 @@ $(function () {
       emailBody: 'Thông điệp',
       countryCodeDescription: 'Số điện thoại bao gồm mã quốc gia',
       howToBuy: 'LAM THÊ NAO ĐỂ MUA',
-      buyOn: 'Bạn có thể mua trên:',
+      buyOn: 'Bạn có thể mua trên: ',
       howToStake: 'CÁCH DÙNG',
-      stakeOn: 'Bạn có thể đặt cược thông qua:',
+      stakeOn: 'Bạn có thể đặt cược thông qua: ',
       ticker: 'Người đánh dấu',
       poolId: 'ID nhóm',
       submit: 'Nộp',
@@ -325,9 +325,9 @@ $(function () {
       emailBody: 'Mensagem',
       countryCodeDescription: 'Número de telefone incluindo código do país',
       howToBuy: 'COMO COMPRAR',
-      buyOn: 'Você pode comprar em:',
+      buyOn: 'Você pode comprar em: ',
       howToStake: 'COMO PARTICIPAR',
-      stakeOn: 'Você pode apostar através de:',
+      stakeOn: 'Você pode apostar através de: ',
       ticker: 'Símbolo de ação',
       poolId: 'ID da piscina',
       submit: 'Enviar',
@@ -400,7 +400,7 @@ $(function () {
       emailBody: 'Mensaje',
       countryCodeDescription: 'Número de teléfono con código de país',
       howToBuy: 'CÓMO COMPRAR',
-      buyOn: 'Puedes comprar en:',
+      buyOn: 'Puedes comprar en: ',
       submit: 'Enviar',
       signUp: 'Inscribirse',
       contactUsDescription:
@@ -410,7 +410,7 @@ $(function () {
       price: 'Precio',
       priceTip: 'Precio Cardano USD',
       howToStake: 'CÓMO APUESTAR',
-      stakeOn: 'Puede apostar a través de:',
+      stakeOn: 'Puede apostar a través de: ',
       ticker: 'Corazón',
       poolId: 'ID de grupo',
       epoch: 'Época',
@@ -534,8 +534,69 @@ $(function () {
       etoro: 'https://www.etoro.com/pt-pt/',
       coinbase: 'https://www.coinbase.com/pt-PT',
     };
+  } else if (code === 'ko') {
+    dict = {
+      contactUs:              "문의하기",
+	  publicMetrics:          "공개 측정항목",
+	  awards:                 "수상",
+	  news:                   "카르다노 뉴스",
+	  subscribe:              "풀 업데이트를 받으려면 가입하세요.",
+	  phone:                  "핸드폰",
+	  name:                   "이름",
+	  firstName:              "이름",
+	  lastName:               "성",
+	  email:                  "이메일",
+	  emailAddress:           "이메일 주소",
+	  emailSubject:           "주제",
+	  emailBody:              "메세지",
+	  countryCodeDescription: "국가 코드를 포함한 전화번호",
+	  howToBuy:               "구입 방법",
+	  buyOn:                  "다음에서 구매할 수 있습니다.",
+	  submit:                 "제출하다",
+	  signUp:                 "가입하기",
+	  contactUsDescription:   "질문이나 의견이 있으면 이메일이나 전화로 문의하거나 문의 양식을 사용하여 메시지를 보내주십시오.",
+	  relays:                 "릴레이",
+	  ends:                   "종료",
+	  price:                  "가격",
+	  howToStake:             "스테이킹 방법",
+	  stakeOn:                "다음을 통해 스테이킹할 수 있습니다.",
+	  ticker:                 "증권 시세 표시기",
+	  poolId:                 "풀 ID",
+	  epoch:                  "시대",
+	  epochTip:               "Cardano 네트워크는 시간을 에포크(epoch)라고 하는 기간으로 분할합니다. 한 Epoch는 약 5일 동안 지속됩니다.",
+	  pledge:                 "약속",
+	  pledgeTip:              "스테이크 풀 소유자가 풀에 위임하기로 약정한 금액입니다.",
+	  totalStake:             "총 지분",
+	  totalStakeTip:          "실시간으로 위임되는 총액입니다.",
+	  delegators:             "위임자",
+	  delegatorsTip:          "풀에 위임한 지갑의 수입니다.",
+	  margin:                 "여유",
+	  marginTip:              "고정 비용 후 스테이크 풀 운영자가 받은 풀의 총 보상 비율입니다.",
+	  fixedCost:              "고정 비용",
+	  fixedCostTip:           "풀의 고정 비용은 매 에포크마다 풀 보상에서 가져옵니다. 이 수수료는 위임자가 아닌 풀의 모든 위임자 간에 공유됩니다. 최소값은 340 ADA입니다.",
+	  lifetimeROA:            "평생 ROA",
+	  lifetimeROATip:         "평생 스테이킹 보상을 기반으로 연간 환산한 ADA의 예상 수익. 오너/리더 보상은 계산에서 제외됩니다.",
+	  epochBlocks:            "에포크 블록",
+	  epochBlocksTip:         "실제 에포크에서 발행된 블록의 수입니다.",
+	  lifetimeBlocks:         "평생 블록",
+	  lifetimeBlocksTip:      "발행된 블록의 수명.",
+	  lifetimeLuck:           "평생 운",
+	  lifetimeLuckTip:        "생성된 블록 수와 풀이 생성할 것으로 예상되는 양의 측정값입니다. 장기적으로 운은 평균 100%입니다.",
+	  supporter:              "ADApools.org 레벨 3 서포터",
+	  formSubmission:         "감사합니다! 확인 이메일이 전송되었습니다.",
+	  relaysTip:              "릴레이 노드는 코어 네트워크 노드와 인터넷 사이에서 프록시 역할을 하여 블록을 생성하는 네트워크 노드 코어 주변에 보안 경계를 설정합니다. 릴레이는 하나 이상의 릴레이가 손상되더라도 코어 노드와 블록체인의 무결성이 손상되지 않은 상태로 유지되도록 합니다.",
+	  howToStakeTip:          "스테이킹에 사용되는 ADA는 위임자의 지갑을 떠나지 않으며 위임자는 저축 계좌의 이자와 유사한 방식으로 보상을 받습니다. 위임자는 스테이킹된 ADA를 자유롭게 이동하거나 원하는 경우 완전히 언스테이킹할 수 있습니다.",
+	  poolDescription:        "우리 수영장은 새로 생겼고 성장하려면 여러분의 도움이 필요합니다. 우리는 블록을 놓치지 않기 위해 최선을 다하고 있습니다. 제로 마진, 다계층 보안, 연중무휴 모니터링, 고성능 노드 및 지리적 중복 연결을 통해 보상을 극대화하십시오.",
+	  priceTip:               "카르다노 원화 가격",
+	  endsDay:                "날",
+	  endsHour:               "시간",
+	  endsMinute:             "분",
+	  currencySymbol:         "₩",
+	  pricePair:              "ADA-KRW",
+	  cointelegraph:          "https://kr.cointelegraph.com/search?query=%EC%B9%B4%EB%A5%B4%EB%8B%A4%EB%85%B8",
+    };
   }
-
+  
   const isHomePage = pathname === '/' || pathname.startsWith(`/${code}/home`);
   const isContactPage =
     pathname === '/contact' || pathname.startsWith(`/${code}/contact`);
@@ -627,7 +688,7 @@ $(function () {
       replaceTextAndTooltip($('.epoch').find('h4'), dict.epoch, dict.epochTip);
       replaceTextAndTooltip($('.ada').find('h4'), dict.price, dict.priceTip);
       replaceTextAndTooltip(
-        $("h3:contains('Relays')"),
+        $("h3:contains('RELAYS')"),
         dict.relays,
         dict.relaysTip
       );
